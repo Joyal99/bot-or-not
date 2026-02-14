@@ -59,26 +59,23 @@ def _resolve_dataset_alias(dataset_arg):
 
 
 def _default_bots_for_dataset(dataset_path):
-    """Pick default bots file when dataset is one of the known challenge files."""
     name = Path(dataset_path).name
     if name == "dataset.posts&users.30.json":
         return str(DATASET_BOTS_30)
+    if name == "dataset.posts&users.31.json":
+        return str(DATASET_BOTS_31)
     if name == "dataset.posts&users.32.json":
         return str(DATASET_BOTS_32)
+    if name == "dataset.posts&users.33.json":
+        return str(DATASET_BOTS_33)
     return None
 
-
 def _dataset_id_from_path(dataset_path):
-    """Infer challenge dataset id (30/32) from filename when possible."""
     name = Path(dataset_path).name
-    if name == "dataset.posts&users.30.json":
-        return "30"
-    if name == "dataset.posts&users.30.json":
-        return "31"
-    if name == "dataset.posts&users.32.json":
-        return "32"
-    if name == "dataset.posts&users.30.json":
-        return "33"
+    if name == "dataset.posts&users.30.json": return "30"
+    if name == "dataset.posts&users.31.json": return "31"
+    if name == "dataset.posts&users.32.json": return "32"
+    if name == "dataset.posts&users.33.json": return "33"
     return "custom"
 
 
@@ -161,8 +158,35 @@ META_PHRASES = [
     "you are trained on data up to",
 ]
 
+META_PHRASES_FR = [
+    "voici mes tweets", "voici quelques tweets", "voici quelques-uns de mes tweets",
+    "voici une version révisée", "voici une version modifiée",
+    "en tant que modèle de langage", "je suis un modèle de langage",
+    "assistant de génération de contenu", "vous êtes un assistant",
+]
 
-def tier1a_meta_text(texts):
+VIENS_DE_PATTERN = re.compile(r"\b(j'?viens|viens|vient)\s+de\b", re.IGNORECASE)
+
+def tier2d_vient_de_frequency(texts, n_posts):
+    """
+    FR TIER 2d: Overuse of 'viens/vient de' anecdote pattern.
+    Requires ≥15 posts.
+      rate ≥ 0.35 → 4 pts
+    Returns: (score, rate)
+    """
+    if n_posts < 15:
+        return 0, 0.0
+
+    count = sum(1 for t in texts if VIENS_DE_PATTERN.search(t))
+    rate = count / n_posts
+
+    if rate >= 0.35:
+        return 4, rate
+    return 0, rate
+
+
+
+def tier1a_meta_text(texts, lang="en"):
     """
     TIER 1a: Leaked LLM prompt / meta-text detection.
     
@@ -171,11 +195,12 @@ def tier1a_meta_text(texts):
     
     Returns: (score, count of meta-text matches)
     """
+    phrases = META_PHRASES if lang == "en" else (META_PHRASES + META_PHRASES_FR)
     count = 0
     for text in texts:
-        text_lower = text.lower()
-        for phrase in META_PHRASES:
-            if phrase in text_lower:
+        tl = text.lower()
+        for phrase in phrases:
+            if phrase in tl:
                 count += 1
                 break  # One match per tweet is enough
     
@@ -249,7 +274,7 @@ def tier2a_same_second_bursts(posts):
 # Bots post more evenly → low CV (~1.0-1.3).
 # This is the single strongest statistical signal across both practice datasets.
 
-def tier2b_interval_regularity(times):
+def tier2b_interval_regularity(times, lang="en"):
     """
     TIER 2b: Posting interval regularity via coefficient of variation.
     
@@ -273,11 +298,13 @@ def tier2b_interval_regularity(times):
     if cv is None:
         return 0, None
     
+    cv3_cutoff = 1.15 if lang == "en" else 1.25
+    
     if cv <= 0.8:
         return 5, cv
     elif cv <= 1.0:
         return 4, cv
-    elif cv <= 1.15:
+    elif cv <= cv3_cutoff:
         return 3, cv
     return 0, cv
 
@@ -313,7 +340,7 @@ def tier2c_template_pattern(texts, n_posts):
 # ~5-6% of tweets; these bots hit 35-60%. At ≥0.35 with ≥15 posts, this
 # signal has ZERO false positives across both practice datasets.
 
-def tier2d_just_frequency(texts, n_posts):
+def tier2d_just_frequency(texts, n_posts,):
     """
     TIER 2d: Overuse of 'just' indicating quirky-anecdote bot pattern.
     
@@ -332,6 +359,21 @@ def tier2d_just_frequency(texts, n_posts):
         return 4, just_rate
     return 0, just_rate
 
+def tier2d_recent_action_frequency(texts, n_posts, lang="en"):
+    if n_posts < 15:
+        return 0, 0.0
+
+    if lang == "en":
+        hits = sum(1 for t in texts if re.search(r"\bjust\b", t.lower()))
+    else:
+        hits = 0
+        for t in texts:
+            tl = t.lower()
+            if re.search(r"\bjuste\b", tl) or re.search(r"\bje viens de\b", tl) or re.search(r"\bviens de\b", tl):
+                hits += 1
+
+    rate = hits / n_posts
+    return (4, rate) if rate >= 0.35 else (0, rate)
 
 # --- Tier 2e: Zero-Engagement Pattern (No URLs + No Mentions) ---
 # Real Twitter users almost always interact — sharing links, replying to
@@ -359,6 +401,15 @@ def tier2e_zero_engagement(texts, n_posts):
     if url_rate == 0 and mention_rate == 0:
         return 2, True
     return 0, False
+
+DICTLIKE_PATTERN = re.compile(r"^\s*\{\s*['\"]text['\"]\s*:\s*['\"]", re.IGNORECASE)
+
+def tier2g_dictlike_dump(texts, n_posts):
+    count = sum(1 for t in texts if DICTLIKE_PATTERN.search(t))
+    if count >= 1 and n_posts >= 10:
+        return 4, count
+    return 0, count
+
 
 
 # ============================================================================
@@ -418,10 +469,10 @@ def tier3b_low_url_rate(texts, n_posts):
 # as a filler device. E.g., "walked into a glass door. fun fact: birds
 # do it too." Zero humans in practice data use this phrase 2+ times.
 
-FUN_FACT_PATTERN = re.compile(r'\bfun fact\b', re.IGNORECASE)
+FUN_FACT_FR_PATTERN = re.compile(r"\ble saviez[- ]vous\b|\bfun fact\b", re.IGNORECASE)
 
 
-def tier3c_fun_fact(texts):
+def tier3c_fun_fact(texts, lang="en"):
     """
     TIER 3c: Repeated 'fun fact' usage.
     
@@ -431,11 +482,13 @@ def tier3c_fun_fact(texts):
     
     Returns: (score, fun_fact_count)
     """
-    count = sum(1 for t in texts if FUN_FACT_PATTERN.search(t))
+    if lang == "en":
+        count = sum(1 for t in texts if re.search(r"\bfun fact\b", t, re.I))
+    else:
+        count = sum(1 for t in texts if FUN_FACT_FR_PATTERN.search(t))
+    return (2, count) if count >= 2 else (0, count)
     
-    if count >= 2:
-        return 2, count
-    return 0, count
+
 
 
 # --- Tier 3d: Repetitive Tweet Opener ---
@@ -451,8 +504,22 @@ REPETITIVE_OPENERS = [
     "unpopular opinion",
 ]
 
+REPETITIVE_OPENERS_FR = [
+    "viens de",
+    "vient de",
+    "jviens de",
+    "j'viens de",
+    "aujourd'hui",
+    "tu te souviens quand",
+    "je vais pas mentir",
+    "on peut parler de",
+    "c'est moi ou",
+    "opinion impopulaire",
+    "franchement",
+]
 
-def tier3d_repetitive_opener(texts):
+
+def tier3d_repetitive_opener(texts, lang="en"):
     """
     TIER 3d: Repetitive tweet opener detection.
     
@@ -462,14 +529,13 @@ def tier3d_repetitive_opener(texts):
     
     Returns: (score, most_repeated_opener_count)
     """
+    openers = REPETITIVE_OPENERS if lang == "en" else (REPETITIVE_OPENERS + REPETITIVE_OPENERS_FR)
     max_count = 0
-    for opener in REPETITIVE_OPENERS:
+    for opener in openers:
         count = sum(1 for t in texts if t.lower().strip().startswith(opener))
         max_count = max(max_count, count)
     
-    if max_count >= 3:
-        return 2, max_count
-    return 0, max_count
+    return (2, max_count) if max_count >= 3 else (0, max_count)
 
 def _normalize_text(t: str) -> str:
     """Lowercase, remove punctuation, collapse spaces (for duplicate detection)."""
@@ -506,7 +572,7 @@ def tier2f_duplicate_text(texts, n_posts):
 # PIPELINE: SCORE A SINGLE USER
 # ============================================================================
 
-def score_user(uid, posts, verbose=False):
+def score_user(uid, posts, dataset_lang="?", verbose=False):
     """
     Run all detection tiers on a single user and return their total score
     along with a breakdown of which tiers fired.
@@ -520,7 +586,7 @@ def score_user(uid, posts, verbose=False):
     total_score = 0
 
     # --- Tier 1: Near-certain signals ---
-    s, detail = tier1a_meta_text(texts)
+    s, detail = tier1a_meta_text(texts, lang=dataset_lang)
     breakdown["T1a_meta_text"] = {"score": s, "meta_matches": detail}
     total_score += s
 
@@ -533,7 +599,7 @@ def score_user(uid, posts, verbose=False):
     breakdown["T2a_same_second"] = {"score": s, "duplicate_timestamps": detail}
     total_score += s
 
-    s, detail = tier2b_interval_regularity(times)
+    s, detail = tier2b_interval_regularity(times, lang=dataset_lang)
     breakdown["T2b_interval_cv"] = {"score": s, "cv": detail}
     total_score += s
 
@@ -541,9 +607,14 @@ def score_user(uid, posts, verbose=False):
     breakdown["T2c_template"] = {"score": s, "is_template": detail}
     total_score += s
 
-    s, detail = tier2d_just_frequency(texts, n_posts)
-    breakdown["T2d_just_freq"] = {"score": s, "just_rate": detail}
+    if dataset_lang == "fr":
+        s, detail = tier2d_vient_de_frequency(texts, n_posts)
+        breakdown["T2d_vient_de_freq"] = {"score": s, "vient_de_rate": detail}
+    else:
+        s, detail = tier2d_just_frequency(texts, n_posts)
+        breakdown["T2d_just_freq"] = {"score": s, "just_rate": detail}
     total_score += s
+
 
     s, detail = tier2e_zero_engagement(texts, n_posts)
     breakdown["T2e_zero_engage"] = {"score": s, "is_zero_engagement": detail}
@@ -567,11 +638,11 @@ def score_user(uid, posts, verbose=False):
     breakdown["T3b_low_url"] = {"score": s, "url_rate": detail}
     total_score += s
 
-    s, detail = tier3c_fun_fact(texts)
+    s, detail = tier3c_fun_fact(texts, lang=dataset_lang)
     breakdown["T3c_fun_fact"] = {"score": s, "fun_fact_count": detail}
     total_score += s
 
-    s, detail = tier3d_repetitive_opener(texts)
+    s, detail = tier3d_repetitive_opener(texts, lang=dataset_lang)
     breakdown["T3d_rep_opener"] = {"score": s, "opener_count": detail}
     total_score += s
 
@@ -628,7 +699,7 @@ def detect_bots(dataset_path, threshold=DETECTION_THRESHOLD, verbose=False):
     all_scores = {}
 
     for uid, posts in user_posts.items():
-        score, breakdown, flagged = score_user(uid, posts, verbose=verbose)
+        score, breakdown, flagged = score_user(uid, posts, dataset_lang=lang, verbose=verbose)
         all_scores[uid] = (score, breakdown)
         if flagged:
             detections.append(uid)
@@ -760,13 +831,15 @@ def main():
     )
 
     args = parser.parse_args()
-
+        
     dataset_arg = str(args.dataset).strip().lower()
-    if dataset_arg in {"all", "both"}:
-        dataset_paths = [
-            str(DATASET_POSTS_USERS_30),
-            str(DATASET_POSTS_USERS_32),
-        ]
+    if dataset_arg in {"all"}:
+        dataset_paths = [str(DATASET_POSTS_USERS_30), str(DATASET_POSTS_USERS_31),
+                        str(DATASET_POSTS_USERS_32), str(DATASET_POSTS_USERS_33)]
+    elif dataset_arg in {"fr", "french"}:
+        dataset_paths = [str(DATASET_POSTS_USERS_31), str(DATASET_POSTS_USERS_33)]
+    elif dataset_arg in {"en", "english"}:
+        dataset_paths = [str(DATASET_POSTS_USERS_30), str(DATASET_POSTS_USERS_32)]
     else:
         dataset_paths = [_resolve_dataset_alias(args.dataset)]
 
