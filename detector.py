@@ -47,10 +47,14 @@ DATASET_POSTS_USERS_30 = BASE_DIR / "dataset.posts&users.30.json"
 DATASET_POSTS_USERS_31 = BASE_DIR / "dataset.posts&users.31.json"
 DATASET_POSTS_USERS_32 = BASE_DIR / "dataset.posts&users.32.json"
 DATASET_POSTS_USERS_33 = BASE_DIR / "dataset.posts&users.33.json"
+DATASET_POSTS_USERS_34 = BASE_DIR / "dataset.posts&users.34.json"
+DATASET_POSTS_USERS_35 = BASE_DIR / "dataset.posts&users.35.json"
 DATASET_BOTS_30 = BASE_DIR / "dataset.bots.30.txt"
 DATASET_BOTS_31 = BASE_DIR / "dataset.bots.31.txt"
 DATASET_BOTS_32 = BASE_DIR / "dataset.bots.32.txt"
 DATASET_BOTS_33 = BASE_DIR / "dataset.bots.33.txt"
+DATASET_BOTS_34 = BASE_DIR / "dataset.bots.34.txt"
+DATASET_BOTS_35 = BASE_DIR / "dataset.bots.35.txt"
 
 
 def _resolve_dataset_alias(dataset_arg):
@@ -60,6 +64,8 @@ def _resolve_dataset_alias(dataset_arg):
         "31": DATASET_POSTS_USERS_31,
         "32": DATASET_POSTS_USERS_32,
         "33": DATASET_POSTS_USERS_33,
+        "34": DATASET_POSTS_USERS_34,
+        "35": DATASET_POSTS_USERS_35,
     }
     if dataset_arg in aliases:
         return str(aliases[dataset_arg])
@@ -77,6 +83,10 @@ def _default_bots_for_dataset(dataset_path):
         return str(DATASET_BOTS_32)
     if name == "dataset.posts&users.33.json":
         return str(DATASET_BOTS_33)
+    if name == "dataset.posts&users.34.json":
+        return str(DATASET_BOTS_34)
+    if name == "dataset.posts&users.35.json":
+        return str(DATASET_BOTS_35)
     return None
 
 
@@ -91,6 +101,10 @@ def _dataset_id_from_path(dataset_path):
         return "32"
     if name == "dataset.posts&users.33.json":
         return "33"
+    if name == "dataset.posts&users.34.json":
+        return "34"
+    if name == "dataset.posts&users.35.json":
+        return "35"
     return "custom"
 
 
@@ -942,10 +956,13 @@ def main():
     dataset_arg = str(args.dataset).strip().lower()
     if dataset_arg in {"all", "both"}:
         dataset_paths = [
-            str(DATASET_POSTS_USERS_30),
-            str(DATASET_POSTS_USERS_31),
-            str(DATASET_POSTS_USERS_32),
-            str(DATASET_POSTS_USERS_33),
+            # str(DATASET_POSTS_USERS_30),
+            # str(DATASET_POSTS_USERS_31),
+            # str(DATASET_POSTS_USERS_32),
+            # str(DATASET_POSTS_USERS_33),
+            str(DATASET_POSTS_USERS_34),
+            str(DATASET_POSTS_USERS_35),
+
         ]
     else:
         dataset_paths = [_resolve_dataset_alias(args.dataset)]
