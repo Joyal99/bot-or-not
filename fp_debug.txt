@@ -1,0 +1,449 @@
+
+############################################################
+RUNNING DATASET: dataset.posts&users.30.json
+############################################################
+Loading dataset from C:\Users\joyal\Projects\bot-or-not\data\dataset.posts&users.30.json...
+Dataset 30 | Language: en
+Users: 275 | Posts: 7528
+Detection threshold: 3
+------------------------------------------------------------
+     human | score=  0 | 196682f6... |  39 tweets
+     human | score=  1 | a0299838... |  29 tweets | fired: T3b_low_url
+  BOT | score=  7 | 865ea40e... |  59 tweets | fired: T2a_same_second, T3a_hashtags
+  BOT | score=  3 | d207d0e3... |  37 tweets | fired: T2e_zero_engage
+     human | score=  0 | cb1ae84d... |  14 tweets
+     human | score=  0 | 1843a95c... |  28 tweets
+     human | score=  0 | 14533de1... |  47 tweets
+     human | score=  0 | 76c1e83b... |  20 tweets
+     human | score=  0 | 3f3b4b62... |  38 tweets
+     human | score=  0 | 94ab6deb... |  12 tweets
+     human | score=  0 | eb8848c0... |  11 tweets
+     human | score=  2 | 9cab1d3d... |  55 tweets | fired: T3a_hashtags
+     human | score=  1 | a814ecd3... |  14 tweets | fired: T3a_hashtags
+     human | score=  0 | b208876d... |  15 tweets
+     human | score=  0 | 75ded63e... |  77 tweets
+     human | score=  0 | 8097b55b... |  10 tweets
+  BOT | score=  5 | 159bddb1... |  40 tweets | fired: T2e_zero_engage, T3a_hashtags
+  BOT | score= 12 | 0080165a... |  37 tweets | fired: T1b_encoding, T3a_hashtags
+     human | score=  0 | 8446ef1f... |  31 tweets
+     human | score=  0 | 6717583b... |   7 tweets
+     human | score=  2 | 0b476e50... |  34 tweets | fired: T3a_hashtags
+     human | score=  1 | 0a70c63d... |  49 tweets | fired: T3a_hashtags
+     human | score=  0 | 8758cd1d... |  21 tweets
+     human | score=  0 | 2738b8aa... |  17 tweets
+     human | score=  0 | 85d95414... |  12 tweets
+     human | score=  0 | 70a708f6... |  32 tweets
+  BOT | score=  5 | 57ecd89d... |  37 tweets | fired: T2b_interval_cv, T3a_hashtags
+  BOT | score=  5 | 76328515... |  16 tweets | fired: T2b_interval_cv, T3b_low_url
+     human | score=  0 | 65b9e5f7... |  43 tweets
+     human | score=  0 | 2017d7b6... |  37 tweets
+     human | score=  0 | 3faf4883... |  34 tweets
+     human | score=  0 | 72dfffba... |  58 tweets
+     human | score=  3 | 1f08e9d5... |  22 tweets | fired: T3a_hashtags, T3b_low_url
+  BOT | score= 12 | 8a2dcd0a... |  77 tweets | fired: T1a_meta_text, T3a_hashtags
+     human | score=  0 | 28f156e2... |  21 tweets
+  BOT | score=  9 | 9d8de2c4... |  32 tweets | fired: T2d_just_freq, T3a_hashtags, T3b_low_url, T3c_fun_fact
+     human | score=  0 | 0dd0239e... |  13 tweets
+  BOT | score=  6 | 7b4e8c84... |  22 tweets | fired: T2b_interval_cv, T3b_low_url
+  BOT | score= 11 | 97455c20... |  33 tweets | fired: T1b_encoding, T3a_hashtags
+     human | score=  0 | 5fa7a815... |   8 tweets
+  BOT | score= 11 | 6af877e2... |  40 tweets | fired: T2b_interval_cv, T2c_template, T2e_zero_engage
+     human | score=  0 | d05bb9c9... |   9 tweets
+  BOT | score= 14 | 0339b1ed... |  15 tweets | fired: T1b_encoding, T2b_interval_cv, T3a_hashtags
+     human | score=  0 | 1d48c18e... |  30 tweets
+     human | score=  1 | ad2e98bf... |  23 tweets | fired: T3a_hashtags
+     human | score=  1 | 3d2f6e1c... |  18 tweets | fired: T3a_hashtags
+  BOT | score= 10 | cb946732... |  20 tweets | fired: T2b_interval_cv, T2d_just_freq, T3a_hashtags
+     human | score=  0 | 14b0b487... |  23 tweets
+  BOT | score=  7 | c2af8c73... |  17 tweets | fired: T1a_meta_text, T2b_interval_cv
+  BOT | score= 12 | 595e7e6a... |  20 tweets | fired: T2a_same_second, T2d_just_freq, T2e_zero_engage
+     human | score=  0 | 664abb38... |  85 tweets
+     human | score=  0 | 28ba3f99... |  12 tweets
+     human | score=  0 | f4fb2849... |  28 tweets
+     human | score=  0 | fff56403... |   4 tweets
+  BOT | score=  8 | fef23847... |  81 tweets | fired: T2d_just_freq, T3a_hashtags, T3c_fun_fact
+     human | score=  0 | ef854ec0... |  32 tweets
+     human | score=  0 | 8987149b... |  32 tweets
+     human | score=  1 | bed56bc4... |  16 tweets | fired: T3b_low_url
+     human | score=  1 | 0252ff4e... |  15 tweets | fired: T3a_hashtags
+  BOT | score=  9 | 0ed33b26... |  42 tweets | fired: T2b_interval_cv, T2d_just_freq, T3d_rep_opener
+     human | score=  0 | f4296086... |  19 tweets
+     human | score=  0 | ddd394c7... |  54 tweets
+     human | score=  0 | b0bb6742... |  22 tweets
+     human | score=  0 | 968cf633... |  16 tweets
+     human | score=  0 | 7d8c1c9d... |  17 tweets
+     human | score=  0 | 3e274d84... |  40 tweets
+     human | score=  0 | 86c4c27b... |  20 tweets
+     human | score=  0 | fee0f6b5... |  30 tweets
+     human | score=  0 | 6400147f... |   7 tweets
+     human | score=  0 | c222ce53... |  14 tweets
+     human | score=  0 | ee21ede8... |  22 tweets
+     human | score=  0 | 6f34f8c7... |  60 tweets
+     human | score=  0 | 82e030fc... |  19 tweets
+     human | score=  2 | b5860692... |  11 tweets | fired: T3a_hashtags
+     human | score=  0 | c43a2a8a... |  33 tweets
+     human | score=  0 | d4014be2... |  30 tweets
+     human | score=  0 | 8cdf4178... |  13 tweets
+     human | score=  0 | 02535031... |   9 tweets
+     human | score=  0 | d1bf4b96... |  20 tweets
+     human | score=  0 | f793fcc5... |  15 tweets
+     human | score=  0 | 163df42f... |  10 tweets
+     human | score=  0 | 5ca3fbf6... |  17 tweets
+  BOT | score=  8 | ddb663c1... |  45 tweets | fired: T2b_interval_cv, T2d_just_freq
+     human | score=  0 | d5bbdc30... |  11 tweets
+  BOT | score=  3 | 16eba65a... |  16 tweets | fired: T2b_interval_cv
+     human | score=  0 | 03398e37... |  15 tweets
+     human | score=  0 | 82cb7d4d... |  12 tweets
+  BOT | score=  5 | a2eba85e... |  22 tweets | fired: T2b_interval_cv
+     human | score=  0 | d2115a98... |  17 tweets
+     human | score=  0 | c6e07b0d... |  26 tweets
+  BOT | score=  9 | 90a23eec... |  40 tweets | fired: T2b_interval_cv, T2e_zero_engage, T3a_hashtags
+     human | score=  0 | 32a54e94... |  26 tweets
+  BOT | score= 13 | 6f8d80c7... |  20 tweets | fired: T1b_encoding, T2b_interval_cv
+     human | score=  0 | 2c2525d4... |  30 tweets
+     human | score=  0 | 11d0ca67... |  18 tweets
+     human | score=  0 | a1222f5c... |  22 tweets
+     human | score=  0 | 424ff808... |  10 tweets
+     human | score=  0 | fc31265a... |  88 tweets
+  BOT | score=  3 | 81bbae51... |  16 tweets | fired: T2b_interval_cv
+     human | score=  0 | 9769a56e... |  30 tweets
+     human | score=  0 | aedb0329... |  34 tweets
+     human | score=  1 | f9ff01d2... |  19 tweets | fired: T3b_low_url
+     human | score=  0 | 73fe4f7c... |  16 tweets
+     human | score=  0 | d5335ed0... |  15 tweets
+     human | score=  0 | 056e1b5a... |  10 tweets
+     human | score=  0 | 66a42259... |  17 tweets
+     human | score=  0 | c3494627... |  11 tweets
+  BOT | score=  4 | c5050746... |  15 tweets | fired: T2b_interval_cv
+     human | score=  0 | 17f2d422... |  33 tweets
+     human | score=  0 | 0e8fb69c... |  20 tweets
+     human | score=  0 | d7e00875... |  18 tweets
+     human | score=  0 | 9329769a... |  22 tweets
+     human | score=  2 | 3111110c... |  30 tweets | fired: T3a_hashtags
+     human | score=  2 | 2a36ca40... |  27 tweets | fired: T3a_hashtags
+  BOT | score=  4 | 7bf9d921... |  40 tweets | fired: T2e_zero_engage, T3a_hashtags
+     human | score=  1 | dc227027... |  10 tweets | fired: T3a_hashtags
+     human | score=  0 | de1520fe... |  27 tweets
+  BOT | score=  5 | a191543e... |  16 tweets | fired: T2b_interval_cv, T3b_low_url
+     human | score=  0 | 52b47679... |  25 tweets
+     human | score=  0 | f346444a... |  27 tweets
+  BOT | score=  8 | 92e91201... |  40 tweets | fired: T2c_template, T2e_zero_engage
+     human | score=  0 | 3ab02f97... |  14 tweets
+     human | score=  0 | 0e9f03eb... |   9 tweets
+  BOT | score= 13 | 648213cf... |  40 tweets | fired: T2b_interval_cv, T2c_template, T2e_zero_engage
+     human | score=  0 | 8837ffb2... |  64 tweets
+     human | score=  0 | 3749ccf9... |  10 tweets
+  BOT | score=  6 | 6054b9db... |  16 tweets | fired: T2b_interval_cv, T3a_hashtags, T3b_low_url
+     human | score=  2 | 91b914c1... |  28 tweets | fired: T1a_meta_text
+     human | score=  0 | a48117b2... |  13 tweets
+  BOT | score= 12 | 2ad53f8c... |  81 tweets | fired: T1a_meta_text, T3a_hashtags
+     human | score=  0 | 311ca08b... |  12 tweets
+     human | score=  1 | 830cd890... |  17 tweets | fired: T3a_hashtags
+     human | score=  2 | 6eb58a82... |  21 tweets | fired: T3a_hashtags
+     human | score=  0 | 19e9dc51... |  29 tweets
+  BOT | score=  8 | a7c5380d... |  54 tweets | fired: T2d_just_freq, T3a_hashtags, T3c_fun_fact
+     human | score=  0 | 798967de... |  33 tweets
+  BOT | score=  5 | f04d9c8f... |  15 tweets | fired: T2a_same_second
+  BOT | score=  3 | d8589b87... |  18 tweets | fired: T2b_interval_cv
+     human | score=  0 | 4bb4fb64... |  23 tweets
+  BOT | score=  9 | ca6e30fe... |  40 tweets | fired: T2b_interval_cv, T2e_zero_engage, T3a_hashtags
+     human | score=  0 | 2edbd467... |  23 tweets
+  BOT | score= 11 | fb26a0c9... |  40 tweets | fired: T2b_interval_cv, T2c_template, T2e_zero_engage
+     human | score=  0 | 0d475db4... |  11 tweets
+     human | score=  0 | 097b70d6... |  24 tweets
+  BOT | score= 11 | d661fe96... |  15 tweets | fired: T2b_interval_cv, T2d_just_freq, T3a_hashtags, T3b_low_url
+     human | score=  0 | f0ee945a... |  14 tweets
+  BOT | score=  7 | e7edb511... |  40 tweets | fired: T2b_interval_cv, T2e_zero_engage, T3a_hashtags
+     human | score=  0 | c0144a63... |  12 tweets
+  BOT | score= 11 | b0904d5b... |  40 tweets | fired: T2b_interval_cv, T2c_template, T2e_zero_engage
+     human | score=  0 | 8d96e4c1... |  35 tweets
+     human | score=  0 | 1c0a0064... |  12 tweets
+     human | score=  0 | 822a9f50... |  16 tweets
+     human | score=  0 | 8a2a7c48... |  15 tweets
+     human | score=  0 | f6679e25... |  14 tweets
+     human | score=  0 | 01f441c8... |  16 tweets
+     human | score=  0 | 7ca9fb00... |  15 tweets
+     human | score=  0 | 2f44452c... |   9 tweets
+  BOT | score= 14 | 6a62ada9... |  35 tweets | fired: T1b_encoding, T2b_interval_cv, T3a_hashtags
+     human | score=  0 | 4fa6468e... |  23 tweets
+  BOT | score= 12 | a0474f6e... |  17 tweets | fired: T1b_encoding, T3a_hashtags
+     human | score=  0 | baebf064... |  12 tweets
+     human | score=  0 | b339d434... |  13 tweets
+     human | score=  0 | ee56f96e... |   9 tweets
+     human | score=  0 | 58900444... |  11 tweets
+  BOT | score= 15 | 2dfdd1ec... |  17 tweets | fired: T1b_encoding, T2b_interval_cv
+  BOT | score= 16 | d78905cd... |  18 tweets | fired: T1b_encoding, T2b_interval_cv, T3a_hashtags
+     human | score=  0 | 82e2f5df... |  12 tweets
+     human | score=  0 | aecfde6f... |  38 tweets
+     human | score=  0 | a7d17421... |  26 tweets
+     human | score=  0 | a631924c... |  13 tweets
+     human | score=  0 | 4e428332... |  14 tweets
+  BOT | score=  3 | 58983bd7... |  15 tweets | fired: T2b_interval_cv
+     human | score=  0 | 92f7bd34... |  33 tweets
+  BOT | score=  3 | d9bf4aff... |  12 tweets | fired: T1a_meta_text, T3a_hashtags
+     human | score=  0 | 763aae0a... |  14 tweets
+     human | score=  0 | 62133642... |  12 tweets
+     human | score=  0 | 01922245... |  25 tweets
+     human | score=  0 | cb3becd6... |  17 tweets
+     human | score=  0 | 0b5867d2... |  10 tweets
+     human | score=  0 | eb3a94c1... |  41 tweets
+     human | score=  0 | 93899a70... |  30 tweets
+     human | score=  0 | b3b2834d... |   6 tweets
+     human | score=  0 | 0543b48f... |  14 tweets
+     human | score=  0 | 208ae363... |  64 tweets
+     human | score=  0 | 7b080db9... |  16 tweets
+     human | score=  1 | 405158e7... |  18 tweets | fired: T3a_hashtags
+     human | score=  0 | ab0653bd... |  17 tweets
+     human | score=  0 | a3cde073... |  11 tweets
+     human | score=  0 | 476444a9... |  12 tweets
+  BOT | score=  7 | c4ae9c45... |  24 tweets | fired: T2a_same_second, T3a_hashtags
+     human | score=  0 | 5509d83b... |  19 tweets
+     human | score=  0 | 306dea53... |   6 tweets
+     human | score=  0 | 6aac1eef... |  21 tweets
+     human | score=  0 | ac912644... |   7 tweets
+     human | score=  0 | 9b3db414... |  79 tweets
+     human | score=  0 | ba4818e8... |  33 tweets
+     human | score=  0 | c68fd3b5... |  39 tweets
+     human | score=  0 | 43d83ae6... |  10 tweets
+     human | score=  2 | b85d8525... |  10 tweets | fired: T3a_hashtags
+  BOT | score=  7 | d45f5ed1... |  22 tweets | fired: T2a_same_second, T3a_hashtags
+  BOT | score=  5 | f79eccf2... |  23 tweets | fired: T2a_same_second
+     human | score=  0 | 3e8f6be0... |  72 tweets
+     human | score=  0 | 8c4ccfd9... |  27 tweets
+     human | score=  1 | 1af28907... |  60 tweets | fired: T3a_hashtags
+     human | score=  1 | b14b09a3... |  14 tweets | fired: T3a_hashtags
+     human | score=  0 | c24f7716... |  30 tweets
+     human | score=  0 | ae65621c... |   9 tweets
+     human | score=  0 | b4b4065d... |  11 tweets
+     human | score=  0 | 84aa7c47... |  11 tweets
+     human | score=  0 | f05a51d8... |   1 tweets
+     human | score=  0 | 6edf6985... |  50 tweets
+     human | score=  1 | 20d5ce0a... |  15 tweets | fired: T3a_hashtags
+     human | score=  0 | cb5fbf22... |   7 tweets
+     human | score=  0 | 82abb843... |   1 tweets
+     human | score=  0 | 31f1d75e... |  13 tweets
+     human | score=  1 | f15037e5... |  25 tweets | fired: T3a_hashtags
+  BOT | score=  3 | fc4403ca... |  10 tweets | fired: T2a_same_second
+  BOT | score=  5 | d37863ac... |  27 tweets | fired: T2a_same_second
+  BOT | score=  7 | 962cbe6b... |  20 tweets | fired: T2a_same_second, T3a_hashtags
+  BOT | score=  5 | a8c37d8c... |  14 tweets | fired: T2a_same_second, T3a_hashtags
+  BOT | score=  7 | a9faacc6... |  30 tweets | fired: T2a_same_second, T3a_hashtags
+  BOT | score=  8 | a42ec2bb... |  44 tweets | fired: T2d_just_freq, T3a_hashtags, T3b_low_url, T3c_fun_fact
+     human | score=  0 | f2040a3f... |   1 tweets
+  BOT | score=  9 | b7517523... |  77 tweets | fired: T2d_just_freq, T3a_hashtags, T3b_low_url, T3c_fun_fact
+     human | score=  0 | 0a93570e... |  95 tweets
+     human | score=  0 | d8846cf0... |   8 tweets
+     human | score=  0 | 56a6cc55... |   9 tweets
+     human | score=  0 | c320f4e1... |   3 tweets
+     human | score=  0 | 468f7b29... |  11 tweets
+     human | score=  0 | 91788598... |  42 tweets
+     human | score=  0 | f0844285... |  13 tweets
+     human | score=  0 | f5e1bf8d... |  11 tweets
+     human | score=  0 | 4e2abf09... |  18 tweets
+     human | score=  0 | 93933982... |  22 tweets
+     human | score=  0 | 5272eb31... |  11 tweets
+     human | score=  0 | ccaa1aa1... |  17 tweets
+     human | score=  0 | 6e82689a... |  89 tweets
+     human | score=  0 | abed6e6e... |  11 tweets
+     human | score=  0 | 3f2706a3... |  27 tweets
+     human | score=  0 | 429c30e9... |   9 tweets
+     human | score=  0 | 9e384759... |  13 tweets
+     human | score=  0 | 8781be61... |  23 tweets
+     human | score=  1 | f0a98150... |  11 tweets | fired: T3a_hashtags
+     human | score=  0 | 7ea1e149... |  12 tweets
+     human | score=  2 | 5de42e48... |  13 tweets | fired: T3a_hashtags
+     human | score=  0 | 2ffcef89... |  20 tweets
+     human | score=  2 | 180a8c73... |  12 tweets | fired: T3a_hashtags
+     human | score=  2 | 433d120e... |  11 tweets | fired: T3a_hashtags
+     human | score=  1 | 40b407a3... |  79 tweets | fired: T3b_low_url
+     human | score=  0 | 8b838453... |   8 tweets
+     human | score=  0 | 1d5fb4e9... |  92 tweets
+     human | score=  0 | 3a0d6ead... |   5 tweets
+     human | score=  0 | 311f6487... |  13 tweets
+     human | score=  0 | da247f15... |  16 tweets
+     human | score=  0 | 3c90b1cc... |  19 tweets
+     human | score=  0 | 41640d5d... |  86 tweets
+     human | score=  0 | 8d511f4a... |  84 tweets
+     human | score=  0 | fcafcb86... |   9 tweets
+     human | score=  0 | 23b67b93... |   1 tweets
+     human | score=  0 | 048effad... |   1 tweets
+  BOT | score=  5 | 8adb0520... |  26 tweets | fired: T2a_same_second
+     human | score=  0 | babb6419... |  86 tweets
+  BOT | score= 18 | ea9fd9d8... |  43 tweets | fired: T2b_interval_cv, T2c_template, T2e_zero_engage, T2f_dup_text
+  BOT | score=  3 | 4c97d4cd... |  80 tweets | fired: T2b_interval_cv
+  BOT | score=  4 | b6d1ae84... |  60 tweets | fired: T2b_interval_cv
+  BOT | score=  6 | 025b09f5... |  80 tweets | fired: T2b_interval_cv, T3a_hashtags, T3b_low_url
+  BOT | score=  6 | 7b152e96... |  80 tweets | fired: T2b_interval_cv, T3a_hashtags, T3b_low_url
+  BOT | score=  7 | c2d05544... |  80 tweets | fired: T2b_interval_cv, T3a_hashtags, T3b_low_url
+  BOT | score=  4 | 7e845ad6... |  80 tweets | fired: T2b_interval_cv
+  BOT | score=  7 | 0837f336... |  60 tweets | fired: T2b_interval_cv, T3a_hashtags, T3b_low_url
+     human | score=  3 | c620f77b... |  60 tweets | fired: T3a_hashtags, T3b_low_url
+  BOT | score=  3 | c2a803a7... |  60 tweets | fired: T2b_interval_cv
+  BOT | score=  4 | 8fb0b151... |  80 tweets | fired: T2b_interval_cv, T3a_hashtags
+  BOT | score=  7 | 2e39245d... |  60 tweets | fired: T2b_interval_cv, T3a_hashtags, T3b_low_url
+  BOT | score=  3 | 8b02b826... |  60 tweets | fired: T2b_interval_cv
+------------------------------------------------------------
+Detected 67 bots out of 275 users
+Detection rate: 24.4%
+Score distribution: {'0': 178, '1-2': 28, '>=3': 69}
+
+======================================================================
+UID: 16eba65a-21b5-bb57-baa5-3cfb86e64407
+TOTAL SCORE: 3
+FIRED RULES:
+  - T2b_interval_cv: {'score': 3, 'cv': 1.0877409111163936}
+
+SAMPLE TWEETS:
+- 2024-03-16T01:14:47.000Z | Now watching:
+
+PACIFIC RIM https://t.co/twitter_link
+- 2024-03-16T02:46:43.000Z | These two are so good together, 
+
+they bring the silliness this movie should have more of. https://t.co/twitter_link https://t.co/twitter_li
+- 2024-03-16T14:05:20.000Z | This cover is so gorgeous 😩 https://t.co/twitter_link
+- 2024-03-16T14:05:49.000Z | The Pulse #2
+- 2024-03-16T15:42:44.000Z | It really is such a great adaptation 
+
+Need more shit like this https://t.co/twitter_link
+
+======================================================================
+UID: 81bbae51-4654-b1fd-afc9-e20f924d31dc
+TOTAL SCORE: 3
+FIRED RULES:
+  - T2b_interval_cv: {'score': 3, 'cv': 1.0975458766313848}
+
+SAMPLE TWEETS:
+- 2024-03-16T01:41:21.000Z | Having one person win on a challenge like this was so weird considering like 80% of it is teamwork #DragRace https://t.co/twitter_link
+- 2024-03-16T12:39:36.000Z | This Flo Milli hate train is so forced and embarrassing tbh https://t.co/twitter_link
+- 2024-03-16T15:24:15.000Z | The way that their “fav” just had a full festival performance last night and they still posting about everyone but her https://t.co/twitter_
+- 2024-03-16T15:58:36.000Z | Me to oomf’s post I didn’t even read https://t.co/twitter_link
+- 2024-03-16T16:06:55.000Z | If you don’t say Nicki/Cardi you’d have to be 12 https://t.co/twitter_link
+
+======================================================================
+UID: 865ea40e-92f1-b149-8b07-b00be16e7df6
+TOTAL SCORE: 7
+FIRED RULES:
+  - T2a_same_second: {'score': 5, 'duplicate_timestamps': 5}
+  - T3a_hashtags: {'score': 2, 'hashtag_rate': 1.5932203389830508}
+
+SAMPLE TWEETS:
+- 2024-03-16T00:00:40.000Z | LIVE #NWSL on Prime Video 2024 #NWSLKickoff 2024 UKG #ChallengeCup #NJNYvORL NJ/NY Gotham FC v San Diego Wave FC from Red Bull Arena in Harr
+- 2024-03-16T02:00:22.000Z | this high school student from #NewJersey has done something really amazing with this🙌
+https://t.co/twitter_link
+- 2024-03-16T14:00:13.000Z | LIVE on Peacock* #IMSA WeatherTech SportsCar Championship Mobile 1 #Sebring12 Presented By Cadillac from Sebring International Raceway in Se
+- 2024-03-16T15:00:01.000Z | LIVE on CBS Sports Network 2024 Women's #MACtion Basketball Tournament Championship Game Buffalo vs Kent State from Rocket Mortgage FieldHou
+- 2024-03-16T15:14:00.000Z | LIVE on ESPN2 UMass Lowell at Vermont 2024 Jersey Mike's #AEPlayoffs Men's Basketball Tournament Championship Game from Tom Brennan Court at
+
+======================================================================
+UID: 8adb0520-f9e2-b91d-ae89-ebd128c547e1
+TOTAL SCORE: 5
+FIRED RULES:
+  - T2a_same_second: {'score': 5, 'duplicate_timestamps': 5}
+
+SAMPLE TWEETS:
+- 2024-03-17T17:49:56.000Z | Isn't it amazing how the MSM is jumping up trying again to declare Trump as a destroyer of free speech and conspritor to destroy democracy. 
+- 2024-03-17T23:12:58.000Z | How dare the Biden adm or Chuck Schumer try to interfere with a foreign democratic government versus the radical Muslim fascists that swear 
+- 2024-03-17T23:16:07.000Z | Hoorah!! 
+
+The only real way to stop a radical Musilim Jihadist organization is to kill them off. 
+
+Hamas has shown the same disdain for hum
+- 2024-03-17T23:55:12.000Z | Authoritarians worldwide are eliminating their opponents in elections. Putin probably killed his, Maduro had his justice department take out
+- 2024-03-17T23:56:25.000Z | Absolutely!
+The security agencies have stated the CCP are able to access all of your data and possibly control your phones functions to spy 
+
+======================================================================
+UID: d207d0e3-1cd6-9f37-bad3-9b8be102f128
+TOTAL SCORE: 3
+FIRED RULES:
+  - T2e_zero_engage: {'score': 3, 'is_zero_engagement': True}
+
+SAMPLE TWEETS:
+- 2024-03-16T00:00:56.000Z | NBA Play:
+
+Jazz +2
+
+Moving
+- 2024-03-16T14:08:07.000Z | CBB Play:
+
+624 New Mexico San Diego St Under 141
+
+Moving
+- 2024-03-16T14:23:43.000Z | CBB Play: 
+
+602 Brown Princeton Under 140
+
+Moving
+- 2024-03-16T14:25:27.000Z | NHL Play: 
+
+Canadiens Flames Over 6 - 120
+
+Trickling
+
+#NHLPicks
+- 2024-03-16T14:27:19.000Z | CBB Play: 
+
+606 St Joseph's VA Commonwealth Under 139.5
+
+Moving
+
+======================================================================
+UID: ea9fd9d8-9371-9af1-8ad5-e583e445ae2f
+TOTAL SCORE: 18
+FIRED RULES:
+  - T2b_interval_cv: {'score': 5, 'cv': 0.7211530653874008}
+  - T2c_template: {'score': 5, 'is_template': True}
+  - T2e_zero_engage: {'score': 3, 'is_zero_engagement': True}
+  - T2f_dup_text: {'score': 5, 'max_dup': 43}
+
+SAMPLE TWEETS:
+- 2024-03-17T22:15:12.000Z | 🦋 xxx Bokep Porn Movies 📽️2345-18
+- 2024-03-17T22:27:56.000Z | 🦋 xxx Bokep Porn Movies 📽️2345-18
+- 2024-03-17T22:34:12.000Z | 🦋 xxx Bokep Porn Movies 📽️2345-18
+- 2024-03-17T22:36:02.000Z | 🦋 xxx Bokep Porn Movies 📽️2345-18
+- 2024-03-17T22:37:56.000Z | 🦋 xxx Bokep Porn Movies 📽️2345-18
+
+======================================================================
+UID: f79eccf2-b1bc-8ed8-aa70-d4b93aee8d25
+TOTAL SCORE: 5
+FIRED RULES:
+  - T2a_same_second: {'score': 5, 'duplicate_timestamps': 5}
+
+SAMPLE TWEETS:
+- 2024-03-16T14:41:38.000Z | I disagree with Tomino here https://t.co/twitter_link https://t.co/twitter_link
+- 2024-03-16T15:34:40.000Z | it's less about convincing the AEUG he isn't Char Aznable than it is convincing himself that he doesn't have to meet the expectations of bei
+- 2024-03-16T15:34:40.000Z | I certainly think Char spends a huge amount of time lying in both Zeta and CCA. In Zeta, mostly to himself, however. Even the Quattro Bajeen
+- 2024-03-16T15:34:41.000Z | It ends with him realizing both that the cause is doomed, and that he has to take on those expectations. Throughout Zeta, he's continuously 
+- 2024-03-16T15:34:43.000Z | He has to be Char Aznable, he has to be Casval Rem Deikun. But neither of these things are true; he's only ever playing a role, even if he h
+
+Detections written to detections.txt (67 accounts)
+
+============================================================
+EVALUATION RESULTS
+============================================================
+True bots in dataset:  66
+Detected as bots:      67
+True Positives (TP):   60
+False Positives (FP):  7
+False Negatives (FN):  6
+Precision:             89.6%
+Recall:                90.9%
+Competition Score:     +220 / 264 (83% of perfect)
+============================================================
+
+Missed bots (6):
+  405158e7-6f21-4c8a-b7d0-9a7018f3c1d9
+  830cd890-c29d-4e84-94af-6063b7071fa7
+  8a2a7c48-23b1-4eef-9ebe-ce48a8a34361
+  b14b09a3-283d-4a75-8e57-22d34d68c4c8
+  c620f77b-d71c-4304-b0f9-deaf769eae26
+  f346444a-3bd4-432b-87d4-5744a126e94d
+
+False positives (7):
+  16eba65a-21b5-bb57-baa5-3cfb86e64407
+  81bbae51-4654-b1fd-afc9-e20f924d31dc
+  865ea40e-92f1-b149-8b07-b00be16e7df6
+  8adb0520-f9e2-b91d-ae89-ebd128c547e1
+  d207d0e3-1cd6-9f37-bad3-9b8be102f128
+  ea9fd9d8-9371-9af1-8ad5-e583e445ae2f
+  f79eccf2-b1bc-8ed8-aa70-d4b93aee8d25
