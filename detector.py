@@ -83,10 +83,10 @@ def _default_bots_for_dataset(dataset_path):
         return str(DATASET_BOTS_32)
     if name == "dataset.posts&users.33.json":
         return str(DATASET_BOTS_33)
-    if name == "dataset.posts&users.34.json":
-        return str(DATASET_BOTS_34)
-    if name == "dataset.posts&users.35.json":
-        return str(DATASET_BOTS_35)
+    # if name == "dataset.posts&users.34.json":
+    #     return str(DATASET_BOTS_34)
+    # if name == "dataset.posts&users.35.json":
+    #     return str(DATASET_BOTS_35)
     return None
 
 
@@ -996,8 +996,11 @@ def main():
         # Evaluate if ground truth is provided/available
         bots_path = args.bots or _default_bots_for_dataset(dataset_path)
         eval_result = None
-        if bots_path:
+        if bots_path and Path(bots_path).exists():
             eval_result = evaluate(detections, bots_path)
+        else:
+            if bots_path:
+                print(f"(Skipping evaluation) Ground truth file not found: {bots_path}")
 
         run_summaries.append(
             {
