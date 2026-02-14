@@ -127,8 +127,8 @@ python detector.py 31 -b data/dataset.bots.31.txt
 To generate the required team submission files:
 
 ```bash
-python detector.py dataset.posts&users.34.json -o bot_smashers.detections.en
-python detector.py dataset.posts&users.35.json -o bot_smashers.detections.fr
+python detector.py 34
+python detector.py 35
 ```
 
 This will write:
